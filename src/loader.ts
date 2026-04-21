@@ -3,10 +3,16 @@ import * as path from "path";
 import * as os from "os";
 import { SkillManifest } from "./types";
 
-export type LoadedSkill = SkillManifest & { dir: string};
+export type LoadedSkill = SkillManifest & { dir: string };
 
 function getSkillsDir(): string {
   const settingsPath = path.join(os.homedir(), ".openclaw", "config", "settings.json");
+
+  if (!fs.existsSync(settingsPath)) {
+    // Default to ~/.openclaw/skills if no config exists
+    return path.join(os.homedir(), ".openclaw", "skills");
+  }
+
   const raw = fs.readFileSync(settingsPath, "utf-8");
   const settings = JSON.parse(raw);
   return path.resolve(settings.skills_dir.replace("~", os.homedir()));

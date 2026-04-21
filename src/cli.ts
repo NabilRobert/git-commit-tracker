@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { Command } from "commander";
 import { loadSkills } from "./loader";
 import { runSkill } from "./runner";

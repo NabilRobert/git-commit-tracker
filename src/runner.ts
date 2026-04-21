@@ -2,7 +2,6 @@ import * as path from "path";
 import * as fs from "fs";
 import { spawn } from "child_process";
 import { SkillInvocation, SkillResult } from "./types";
-import { EOF } from "dns";
 
 export async function runSkill(invocation: SkillInvocation): Promise<SkillResult> {
   const entryPoint = path.resolve(invocation.dir, invocation.manifest.entry_point);
@@ -81,5 +80,4 @@ export async function runSkill(invocation: SkillInvocation): Promise<SkillResult
       }
     });
   });
-}
-EOF
+}
