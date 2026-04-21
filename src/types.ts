@@ -1,5 +1,3 @@
-import { EOF } from "node:dns";
-
 export interface SkillManifest {
     name: string;
     description: string;
@@ -29,4 +27,3 @@ export interface SkillResult {
   raw: unknown;
   duration_ms: number;
 }
-EOF

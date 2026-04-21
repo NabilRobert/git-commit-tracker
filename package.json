@@ -1,14 +1,15 @@
 {
-  "name": "git-commit-tracker",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "openclaw",
+  "version": "0.1.0",
+  "description": "Local CLI agent for running skills",
+  "main": "dist/cli.js",
+  "bin": {
+    "openclaw": "dist/cli.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js"
+  },
   "packageManager": "pnpm@10.19.0",
   "devDependencies": {
     "@types/node": "^25.6.0",

@@ -1,9 +1,7 @@
-'EOF'
 import * as fs from "fs";
 import * as path from "path";
 import * as os from "os";
 import { SkillManifest } from "./types";
-import { EOF } from "dns";
 
 export type LoadedSkill = SkillManifest & { dir: string};
 
@@ -43,4 +41,3 @@ export async function loadSkills(): Promise<Map<string, LoadedSkill>> {
 
   return result;
 }
-EOF
