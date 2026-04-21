@@ -1,5 +1,6 @@
 import { Command } from "commander";
 import { loadSkills } from "./loader";
+import { runSkill } from "./runner";
 
 const program = new Command();
 
@@ -49,9 +50,20 @@ program
       }
     }
 
-    console.log(`Running skill: ${skillName}`);
-    console.log(`Parameters:`, params);
-    console.log(`(runner not wired yet — coming day 3)`);
+    const result = await runSkill({
+      skillName,
+      parameters: params,
+      dir: skill.dir,
+      manifest: skill
+    });
+
+    if (result.status === "ok") {
+      console.log(`\n${result.output}`);
+      console.log(`\nCompleted in ${result.duration_ms}ms`);
+    } else {
+      console.error(`\nError: ${result.output}`);
+      process.exit(1);
+    }
   });
 
 program.parse(process.argv);
